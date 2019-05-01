@@ -13,11 +13,11 @@
         print(myJson[i][1])
         i += 1
 < object
-
+/*
 > object test python
     print()
 < object
-
+*/
 + [*] 요리 목록[*] 
 - <call>test</call>
 
