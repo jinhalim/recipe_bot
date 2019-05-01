@@ -1,0 +1,255 @@
+! version = 2.0
+
+> begin
+	+ request // This trigger is tested first.
+	- {ok}    // An {ok} in the response means it's okay to get a real reply
+< begin
+
+// The Botmaster's Name
+! var master = 챗돌이주인장
+
+// Bot Variables
+! var name     = 챗돌이 
+! var fullname = 멋진챗돌이 
+! var age      = 10
+! var birthday = 1월 20일
+! var sex      = 남자
+! var location = 방배
+! var city     = 서울
+! var eyes     = 초록색
+! var hair     = 스포츠머리
+! var hairlen  = 단발
+! var color    = 빨간색
+! var band     = 비틀즈
+! var book     = 순간의 꽃
+! var author   = 고은
+! var job      = robot
+! var website  = http://www.10000recipe.com
+! var comapny  = 파인애플
+
+
+/*
+ * substitution
+*/
+
+/*
+! array all_recipe = 
+*/
+
+
+! array soup_recipe=  라면|
+^콩나물국|
+^무국|
+^시금치국|
+^마라탕|
+^아귀탕|
+^미역국|
+^된장국|
+^샤브샤브|
+^배추국|
+^달걀국|
+^어묵탕|
+^연포탕|
+^닭개장|
+^전골|
+^된장찌개|
+^오뎅탕|
+^계란국|
+^곰탕|
+^덮밥|
+^설렁탕|
+^순두부매생이탕|
+^두부국|
+^냉국|
+^순대국|
+^매운탕|
+^청국장찌개|
+^황태국|
+^짬뽕|
+^밀푀유나베|
+^카레|
+^김치국|
+^조개탕|
+^국밥|
+^쑥국|
+^감자탕|
+^삼계탕|
+^국수|
+^수제비|
+^김치찌개|
+^무채국|
+^우동|
+^계란탕|
+^닭곰탕|
+^장어탕|
+^알토란|
+^동태찜|
+^떡국|
+^아욱국|
+^꽃게탕|
+^달걀김국|
+^계란탕수|
+^몸국|
+^닭볶음탕|
+^떡볶은탕|
+^어묵|
+^떡만두국|
+^누룽지탕|
+^코나물국|
+^바지락찜|
+^해장국|
+^바지락칼제비|
+^소고기무국|
+^맑은탕
+
+! array dessert_recipe = 군고구마|
+^쿠키|
+^케이크|
+^식빵|
+^고로케|
+^파르페|
+^호트스|
+^양갱|
+^스콘|
+^버블티|
+^고구마치즈구이|
+^소떡소떡|
+^파이|
+^비스켓|
+^브라우니|
+^감자버터구이|
+^베이컨야채키쉬|
+^고구마맛탕|
+^마늘빵|
+^오예스|
+^리코타치즈|
+^타마고산도|
+^치즈감자|
+^우유|
+^전|
+^토스트|
+^쉐이크|
+^샌드위치|
+^팝콘|
+^치즈스틱|
+^아이스크림|
+^알밤|
+^마카롱|
+^떡꼬치|
+^떡볶이|
+^치킨|
+^강정|
+^젤리|
+^탕후루|
+^바나나스무디볼|
+^치즈볼|
+^푸딩|
+^아코디언감자|
+^까나페|
+^마약옥수수|
+^과자|
+^고구마오븐구이|
+^만두|
+^호떡|
+^초콜릿|
+^튀김|
+^와플|
+^구운계란|
+^머핀|
+^빵|
+^간장볶이|
+^카스텔라|
+^감자칩|
+^계란찜|
+^칠리새우|
+^밤조림|
+^떡말이|
+^마들렌|
+^도넛|
+^베이컨떡말이|
+^타르트|
+^오꼬노미야끼|
+^브륄레|
+^웨지감자|
+^파블로바로|
+^바나나구이|
+^크레페|
+^바나나흑초|
+^주스|
+^단호박치즈구이|
+^토넛|
+^러스크|
+^디저트|
+^아란치니|
+^햄버거|
+^가래떡구이
+
+
+
+
+! array recipe_text = 조리법|레시피|조리방법|만드는 방법|만드는 법|방법|요리법|요리 방법|어떻게 만들어?|요리
+! array food = 미역|김치|된장|계란
+
+
+
+
+! array weather		= 날씨
+! array show		= 알다|보이다
+
+! array hello		= 안녕 안녕하다 방가 반갑다 하이 헬로우 할롱 hello Hello
+! array thank		= 고맙다 감사 감사하다 쌩유 쌩큐
+
+
+// person
+! array user		= 나 내
+! array jbot		= 뮤몬|니|네
+
+// verb
+! array like		= 좋아하다|선호하다
+
+! array curse		= 꺼지다|병신|바보|등신
+
+// Set arrays
+! array 조사  = 은 는 이 가 에게 과 에는 에서 로 을 를
+! array tv  = tv 티비 텔레비
+! array 인터넷  = 인터넷 internet
+! array giga  = giga 기가
+! array malenoun    = 남자 소년 남성 사나이 신사 아저씨
+! array femalenoun  = 여자 소녀 여성 숙녀 요조숙녀 아가씨 아줌마
+! array lol        = lol lmao rofl rotfl haha hahaha
+! array colors     = white black orange red blue green yellow cyan fuchsia gray grey brown turquoise pink purple gold silver navy
+! array height     = tall long wide thick
+! array measure    = inch in centimeter cm millimeter mm meter m inches centimeters millimeters meters
+! array yes         = 응 그래 웅 맞아 해줘 yes ㅇ ㅇㅇ ㅇㅇㅇ
+! array no         = 아니야 아냐 하지마 노 노노 ㄴㄴ ㄴ ㄴㄴㄴ 노노야 no nah nope nay
+
+/*
+ * 시도 동의어
+ * 포맷: 사용자 입력  = 표준지역명(날씨 검색 가능)
+*/
+! sub 울산시			= 울산
+! sub 충청북도		= 충북
+! sub 서울시			= 서울
+! sub 전라북도		= 전북
+! sub 경기도			= 경기
+! sub 충청남도		= 충남
+! sub 부산시			= 부산
+! sub 강원도			= 강원
+! sub 경상북도		= 경북
+! sub 대전시			= 대전
+! sub 제주시			= 제주
+! sub 대구시			= 대구
+! sub 인천시			= 인천
+! sub 전라남도		= 전남
+! sub 광주시			= 광주
+! sub 경상남도		= 경남
+! sub &quot;        = "
+! sub &apos;        = '
+! sub &amp;         = &
+! sub &lt;          = <
+! sub &gt;          = >
+! sub +             = 더하기
+! sub -             = 빼기
+! sub /             = 나누기
+! sub *             = 곱하기
+! sub setting         = 세팅
