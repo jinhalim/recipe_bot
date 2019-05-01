@@ -32,4 +32,3 @@ while True:
 # vim:expandtab
 
 
-# 출처: https://dlwodus.tistory.com/339?category=972785 [MY MEMO]

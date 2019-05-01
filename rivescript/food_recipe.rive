@@ -2,6 +2,24 @@
 
 ! local concat = newline
 
+> object test python
+    import json
+    myJson = {} 
+    tempRecipe = open("C:/Users/jinhalim/Desktop/recipe_bot/dessert.txt","r")
+    i = 0
+    for line in tempRecipe.readlines():
+        subline = line.split('\n')
+        myJson[i] = subline[0].split('\t')
+        print(myJson[i][1])
+        i += 1
+< object
+
+> object test python
+    print()
+< object
+
++ [*] 요리 목록[*] 
+- <call>test</call>
 
 + (@soup_recipe)[의]재료[알려줘]
 - 
