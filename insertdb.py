@@ -2,7 +2,7 @@ import json
 
 myJson = {}
 
-tempRecipe = open("C:/Users/jinhalim/Desktop/capston_mecab_test/new_food/dessert.txt","r")
+tempRecipe = open("C:/Users/jinhalim/Desktop/recipe_bot/dessert.txt","r")
 
 i = 0
 for line in tempRecipe.readlines():
