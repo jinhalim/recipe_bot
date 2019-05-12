@@ -1,0 +1,12 @@
+create table recipe (
+    ID int(11) auto_increment,  //레시피 id
+    big_id int(11),             //큰 카테고리 id
+    sub_id  int(11) ,           //소 카테고리 id
+    recipe_name text ,          //레시피 명
+    recipe text ,               //레시피
+    ingredient  text ,          //재료
+    ing_broth   text,           //육수
+    ing_seasoning   text,       //양념
+    PRIMARY kEY(ID),            
+    constraint recipe_db foreign key(sub_id) references big_category(id)
+)
