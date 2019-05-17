@@ -5,6 +5,7 @@
 from rivescript import RiveScript
 import re
 rs = RiveScript(utf8=True)
+# rs.set_handler("python", None)
 rs.unicode_punctuation = re.compile(r'[.,!?;:]')
 rs.load_directory("./rivescript")
 rs.sort_replies()
