@@ -220,7 +220,7 @@
 ! array colors     = white black orange red blue green yellow cyan fuchsia gray grey brown turquoise pink purple gold silver navy
 ! array height     = tall long wide thick
 ! array measure    = inch in centimeter cm millimeter mm meter m inches centimeters millimeters meters
-! array yes         = 응 그래 웅 맞아 해줘 yes ㅇ ㅇㅇ ㅇㅇㅇ
+! array yes         = 응 그래 웅 맞아 해줘 yes ㅇ ㅇㅇ ㅇㅇㅇ ok
 ! array no         = 아니야 아냐 하지마 노 노노 ㄴㄴ ㄴ ㄴㄴㄴ 노노야 no nah nope nay
 
 /*
