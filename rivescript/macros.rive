@@ -1,0 +1,28 @@
+! version = 2.0
+
+
+> object test python
+    import pymysql
+    print("HELLO");
+    def select_student(): 
+        conn = pymysql.connect( 
+            host='localhost', 
+            user='root', 
+            password='root', 
+            charset='utf8', 
+            db='recipe_db' 
+        ) 
+        sql = 'SELECT category_name FROM big_category WHERE id>100'
+        // params = (email,)
+        params = None
+        try:
+            with conn.cursor() as cursor: 
+                cursor.execute(sql) 
+                result = cursor.fetchall() 
+                print(result) 
+                conn.commit() 
+            finally: 
+                conn.close()
+
+    select_student()
+< object
