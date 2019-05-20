@@ -5,11 +5,8 @@
 > topic recipe_list
 
 + #
-- <set num=<star>>
-* <get num> >= 10 => 다시 말해주세요
-* <get num> == underfined => 다시 말해주세요
-* <get num> <= 0 => 다시 말해주세요
-* <get num> > 0 => <call>recipe_list_find <star></call> 다음과 같은 요리가 있습니다.
+* <call>isid <star></call> eq 0 => 다시 말해주세요
+* <call>isid <star></call> eq 1 => <call>recipe_list_find <star></call> 다음과 같은 요리가 있습니다.
 
 + *  
 - 다시 말해주세요
@@ -18,7 +15,9 @@
 - 무엇이 필요하신가요?
 ^ {topic=random}
 
-< topic recipe_name
+< topic
+
+> topic recipe_name
 
 + #
 - <call>recipe_find <star></call>
@@ -30,20 +29,10 @@
 - 무엇이 필요하신가요?
 ^ {topic=random}
 
-> topic
-
-
-
-
-
-
-
-
-> topic food
-
-+ *
--<get food_name>이 재료인 음식은 이것들 입니다. {topic=random}
-
-+ /home
-- {topic=random}
 < topic
+
+
+
+
+
+
