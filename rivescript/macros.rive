@@ -2,7 +2,7 @@
 
 > object recipe_list python
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
     sql = "select * from big_category where id<100"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql)
@@ -16,7 +16,7 @@
     num = args[0]
     listnumber = int(num)*100
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
     sql = "select * from big_category where id> %s && id< %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,(listnumber, listnumber + 100))
@@ -31,7 +31,7 @@
     recipe = args[0]
     recipe_id = 0
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
     sql = "select * from big_category where category_name = %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,(recipe))
@@ -53,7 +53,7 @@
     id = args[0]
     idnum = int(id)
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
     sql = "select * from recipe where ID = %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,idnum)
@@ -79,7 +79,7 @@
     food_name = args[0]
     have_food = False
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
     sql = "select * from recipe"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql)
