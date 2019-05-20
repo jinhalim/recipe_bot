@@ -6,7 +6,10 @@
 
 + #
 * <call>isid <star></call> eq 0 => 다시 말해주세요
-* <call>isid <star></call> eq 1 => <call>recipe_list_find <star></call> 다음과 같은 요리가 있습니다.
+* <call>isid <star></call> eq 1 => <call>recipe_list_find <star></call> 다음과 같은 요리가 있습니다. 몇 번의 요리가 궁금하신가요? {topic=recipe_name}
+
+// + #번 요리
+// - <call>recipe_name_find <star></call>
 
 + *  
 - 다시 말해주세요
@@ -19,8 +22,11 @@
 
 > topic recipe_name
 
+
 + #
 - <call>recipe_find <star></call>
+
+
 
 + *
 - 다시 말해주세요
