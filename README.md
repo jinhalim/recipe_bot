@@ -7,4 +7,4 @@
 
 
 <image src = "https://github.com/jinhalim/recipe_bot/blob/master/test_image.PNG">
-<image src = "https://github.com/jinhalim/recipe_bot/blob/master/food_recipe.PNG">
+<image src = "https://github.com/jinhalim/recipe_bot/blob/master/food_recipe%EA%B5%AC%ED%98%84.PNG">
