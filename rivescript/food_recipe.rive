@@ -2,7 +2,7 @@
 
 ! local concat = newline
 
-+ [*]요리목록[*] 
++ 요리목록
 - <call>recipe_list</call>
 ^ 다음과 같은 목록이 있습니다. 자세히 보고 싶다면 해당 번호를 입력해주세요(처음으로 가기:home)
 ^ {topic=recipe_list}
@@ -10,20 +10,11 @@
 // + (@soup_recipe)[의]재료[알려줘]
 // - 
 
++ *[의][@recipe_text] 알려줘
+-  <call>recipe_name_find <star></call>
+// ^ 몇번의 레시피를 알려드릴까요? 
+// ^{topic=recipe_name} 
 
-+(@soup_recipe)[의][@recipe_text][알려줘]
--<set recipe_name=<star>>응 알겠어요 
-^<get recipe_name>를 원하시는가요? {topic=recipe}
-
-+ (@dessert_recipe)[의][@recipe_text][알려줘]
-- <set recipe_name=<star>>응 알겠어요 
-^ <get recipe_name>를 원하시는가요? {topic=recipe}
 
 + (@food)[으로 된]요리[알려줘]
 - <set food_name=<star>>넵! {topic=food}
-
-+ (@food)[으로 된][@recipe_text][알려줘]
-- <set food_name=<star>>넵!! {topic=recipe}
-
-
-

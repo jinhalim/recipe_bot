@@ -1,6 +1,5 @@
 ! version = 2.0
 
-
 > object recipe_list python
     import pymysql
     conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
@@ -18,7 +17,7 @@
     listnumber = int(num)*100
     import pymysql
     conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
-    sql = "select * from big_category where id> %d && id< %d"
+    sql = "select * from big_category where id> %s && id< %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,(listnumber, listnumber + 100))
     rows = curs.fetchall()
@@ -26,3 +25,40 @@
         print(row['id'],":",row['category_name'])
     conn.close()
 < object
+
+
+> object recipe_name_find python
+    recipe = args[0]
+    recipe_id = 0
+    import pymysql
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    sql = "select * from big_category where category_name = %s"
+    curs = conn.cursor(pymysql.cursors.DictCursor)
+    curs.execute(sql,(recipe))
+    rows = curs.fetchall()
+    for row in rows:
+        print(row['id'],":",row['category_name'])
+        recipe_id = int(row['id'])
+    sql = "select * from recipe where sub_id = %s"
+    curs = conn.cursor(pymysql.cursors.DictCursor)
+    curs.execute(sql,(recipe_id))
+    rows = curs.fetchall()
+    for row in rows:
+        print(row['ID'],":",row['recipe_name'])
+    conn.close()
+< object
+
+> object recipe_find python
+    id = args[0]
+    idnum = int(id)
+    import pymysql
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    sql = "select * from recipe where ID = %s"
+    curs = conn.cursor(pymysql.cursors.DictCursor)
+    curs.execute(sql,idnum)
+    rows = curs.fetchall()
+    for row in rows:
+        print(row['ID'],":",row['recipe_name'],":",row['recipe'])
+    conn.close()
+< object
+

@@ -20,4 +20,5 @@ while True:
         quit()
     reply = rs.reply("localuser", msg)
     print("Bot>", reply)
+    print('처음으로 가기:"/home"')
 
