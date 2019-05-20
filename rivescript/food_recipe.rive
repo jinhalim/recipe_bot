@@ -7,8 +7,6 @@
 ^ 다음과 같은 목록이 있습니다. 자세히 보고 싶다면 해당 번호를 입력해주세요(처음으로 가기:home)
 ^ {topic=recipe_list}
 
-// + (@soup_recipe)[의]재료[알려줘]
-// - 
 
 + _[의][@recipe_text] 알려줘
 -  <call>recipe_name_find <star></call>
