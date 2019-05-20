@@ -93,3 +93,17 @@
             have_food = False
     conn.close()
 < object
+
+> object random_recipe python
+    import random
+    import pymysql
+    random_id = random.randint(1,674)
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    sql = "select * from recipe where ID = %s"
+    curs = conn.cursor(pymysql.cursors.DictCursor)
+    curs.execute(sql,random_id)
+    rows = curs.fetchall()
+    for row in rows:
+        print(row['ID'],":",row['recipe_name'])
+    conn.close()
+< object
