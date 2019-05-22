@@ -39,18 +39,15 @@
     conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     sql = "select * from big_category where category_name = %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
-    curs.execute(sql,(recipe))
+    curs.execute(sql,recipe)
     rows = curs.fetchall()
     for row in rows:
-        print(row['id'],":",row['category_name'])
-        recipe_id = int(row['id'])
-    sql = "select * from recipe where sub_id = %s"
-    curs = conn.cursor(pymysql.cursors.DictCursor)
-    curs.execute(sql,(recipe_id))
+        recipe_id = row['id']
+    newsql = "select * from recipe where sub_id = %s"
+    curs.execute(newsql,(recipe_id))
     rows = curs.fetchall()
     for row in rows:
-        print(row['ID'],":",row['recipe_name'])
-        result = result +str(row['ID'])+":"+row['recipe_name']+"\n"
+        result = result + str(row['ID']) + ":" + row['recipe_name']+"\n"
     return result
     conn.close()
 < object

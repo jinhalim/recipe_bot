@@ -1,16 +1,19 @@
-food_name = "미역"
-have_food = False
 import pymysql
+
+result = ""
+recipe = "오뎅탕"
+recipe_id = 0
 conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
-sql = "select * from recipe"
+sql = "select * from big_category where category_name = %s"
 curs = conn.cursor(pymysql.cursors.DictCursor)
-curs.execute(sql)
+curs.execute(sql,recipe)
 rows = curs.fetchall()
 for row in rows:
-    food_ings = row['ingredient']
-    if(food_ings.find(food_name) > 0):
-        have_food = True
-    if(have_food == True):
-        print(row['ID'],":",row['recipe_name'])
-        have_food = False
+    recipe_id = row['id']
+newsql = "select * from recipe where sub_id = %s"
+curs.execute(newsql,recipe_id)
+rows = curs.fetchall()
+for row in rows:
+    result = result + str(row['ID']) + ":" + row['recipe_name']+"\n"
+print(result)
 conn.close()
