@@ -3,7 +3,7 @@
 > object recipe_list python
     import pymysql
     result = ""
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     sql = "select * from big_category where id<100"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql)
@@ -19,7 +19,7 @@
     result = ""
     listnumber = int(num)*100
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     sql = "select * from big_category where id> %s && id< %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,(listnumber, listnumber + 100))
@@ -36,14 +36,17 @@
     id = args[0]
     idnum = int(id)
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     sql = "select * from recipe where sub_id = %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,idnum)
     rows = curs.fetchall()
     for row in rows:
         result = result + str(row['ID'])+":"+ str(row['sub_id'])+":"+row['recipe_name']+":"+row['recipe']+"\n"
-    return result
+    if(result != ""):
+        return result
+    else:
+        return "검색내용이 없습니다."
     conn.close()
 < object
 
@@ -54,14 +57,14 @@
     recipe = args[0]
     recipe_id = 0
     import pymysql
-    conn1 = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    conn1 = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     sql = "select * from big_category where category_name = %s"
     curs = conn1.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,recipe)
     rows = curs.fetchall()
     for row in rows:
         recipe_id = row['id']
-    conn2 = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    conn2 = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     newsql = "select * from recipe where ID = %s"
     curs = conn2.cursor(pymysql.cursors.DictCursor)
     curs.execute(newsql,recipe_id)
@@ -79,7 +82,7 @@
     id = args[0]
     idnum = int(id)
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     sql = "select * from recipe where ID = %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,idnum)
@@ -106,7 +109,7 @@
     food_name = args[0]
     have_food = False
     import pymysql
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     sql = "select * from recipe"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql)
@@ -127,7 +130,7 @@
     import pymysql
     result = ""
     random_id = random.randint(1,674)
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
     sql = "select * from recipe where ID = %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,random_id)
@@ -144,26 +147,41 @@
     result = ""
     text = args[0]
     id = 0
-    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
-    sql = "select * from big_category"
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+    sql = "select * from big_category where id < 10"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql)
     rows = curs.fetchall()
     for row in rows:
-        if(text.find(row['category_name'])):
+        if(text.find(row['category_name'])==False):
             result = row['category_name']
-            id = row['id']
-    if(id<10):
-        result2 = ""
-        conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
-        sql = "select * from big_category where id > %s && id < %s"
-        curs = conn.cursor(pymysql.cursors.DictCursor)
-        curs.execute(sql,str(id*100),str((id+1)*100))
+            id = 1
+    if(id == 0):
+        conn1 = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+        sql1 = "select * from big_category where id > 10"
+        curs = conn1.cursor(pymysql.cursors.DictCursor)
+        curs.execute(sql1)
         rows = curs.fetchall()
         for row in rows:
-            result2 = result2 +","+ row['category_name']
+            if(text.find(row['category_name'])==False):
+                result = row['category_name']
+                id =1
+    
+    if(id==1):
+        result2 =""
+        conn2 = pymysql.connect(host = 'localhost',user = 'root',password ='root',charset = 'utf8',db = 'recipe_db')
+        sql = "select * from recipe"
+        curs = conn2.cursor(pymysql.cursors.DictCursor)
+        curs.execute(sql)
+        rows = curs.fetchall()
+        for row in rows:
+            if(row['recipe_name'].find(result)==False):
+                result2 = result2 +str(row['ID'])+":"+row['recipe_name']+"\n"
         return result2
+            
     else:
-        return result
+        return "검색내용이 없습니다."
     conn.close()
+    conn1.close()
+    conn2.close()
 < object

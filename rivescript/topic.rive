@@ -53,9 +53,9 @@
 
 > topic cook
 + *[@cook_last_search]
--  <call>food_find <star></call>
+- <call>match_cook_name <star></call>
 ^ 몇번의 레시피를 알려드릴까요? 
-^ {topic=recipe_name} 
+^ {topic=recipe_name}
 
 + /home
 - 무엇이 필요하신가요?
