@@ -2,22 +2,38 @@
 
 ! local concat = newline
 
+
+
++ 1
+- 무엇이 궁금하십니까?
+^ {topic=cook}
+
++ 2
+- 무엇이 궁금하십니까?
+^ {topic=ing}
+
++ #
+- 번호를 다시 말해주세요
+
 + 요리 목록
 - <call>recipe_list</call>
-^ 다음과 같은 목록이 있습니다. 자세히 보고 싶다면 해당 번호를 입력해주세요(처음으로 가기:home)
+^ 다음과 같은 목록이 있습니다. 자세히 보고 싶다면 해당 번호를 입력해주세요
 ^ {topic=recipe_list}
-
-
-+ _[의][@recipe_text] 알려줘
--  <call>recipe_name_find <star></call>
-^ 몇번의 레시피를 알려드릴까요? 
-^ {topic=recipe_name} 
-
-
-+ _[으로 된]요리[알려줘]
--  <call>food_find <star></call>
-^ 몇번의 레시피를 알려드릴까요? 
-^ {topic=recipe_name} 
 
 + 오늘의 요리
 - <call>random_recipe</call>
+
+> topic cook
++ * [@cook_last_search]
+-  <call>recipe_name_find <star></call>
+^ 몇번의 레시피를 알려드릴까요? 
+^ {topic=recipe_name}
+< topic
+
+> topic ing
++ *[으로 된]요리[알려줘]
+-  <call>food_find <star></call>
+^ 몇번의 레시피를 알려드릴까요? 
+^ {topic=recipe_name} 
+< topic
+
