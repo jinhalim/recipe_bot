@@ -23,25 +23,5 @@
 + 오늘의 요리
 - <call>random_recipe</call>
 
-> topic cook
-+ * [@cook_last_search]
--  <call>recipe_name_find <star></call>
-^ 몇번의 레시피를 알려드릴까요? 
-^ {topic=recipe_name}
 
-+ /home
-- 무엇이 필요하신가요?
-^ {topic=random}
-< topic
-
-> topic ing
-+ *[으로 된]요리[알려줘]
--  <call>food_find <star></call>
-^ 몇번의 레시피를 알려드릴까요? 
-^ {topic=recipe_name} 
-
-+ /home
-- 무엇이 필요하신가요?
-^ {topic=random}
-< topic
 
