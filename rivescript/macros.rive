@@ -37,12 +37,12 @@
     idnum = int(id)
     import pymysql
     conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
-    sql = "select * from recipe where subid = %s"
+    sql = "select * from recipe where sub_id = %s"
     curs = conn.cursor(pymysql.cursors.DictCursor)
     curs.execute(sql,idnum)
     rows = curs.fetchall()
     for row in rows:
-        result = result + str(row['ID'])+":"+row['recipe_name']+":"+row['recipe']+"\n"
+        result = result + str(row['ID'])+":"+ str(row['sub_id'])+":"+row['recipe_name']+":"+row['recipe']+"\n"
     return result
     conn.close()
 < object
@@ -62,7 +62,7 @@
     for row in rows:
         recipe_id = row['id']
     conn2 = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
-    newsql = "select * from recipe where sub_id = %s"
+    newsql = "select * from recipe where ID = %s"
     curs = conn2.cursor(pymysql.cursors.DictCursor)
     curs.execute(newsql,recipe_id)
     rows = curs.fetchall()
