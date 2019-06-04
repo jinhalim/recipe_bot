@@ -28,6 +28,10 @@
 -  <call>recipe_name_find <star></call>
 ^ 몇번의 레시피를 알려드릴까요? 
 ^ {topic=recipe_name}
+
++ /home
+- 무엇이 필요하신가요?
+^ {topic=random}
 < topic
 
 > topic ing
@@ -35,5 +39,9 @@
 -  <call>food_find <star></call>
 ^ 몇번의 레시피를 알려드릴까요? 
 ^ {topic=recipe_name} 
+
++ /home
+- 무엇이 필요하신가요?
+^ {topic=random}
 < topic
 
