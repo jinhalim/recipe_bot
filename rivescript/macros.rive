@@ -121,3 +121,20 @@
     return result
     conn.close()
 < object
+
+> object match_cook_name python
+    import random
+    import pymysql
+    result = ""
+    text = args[0]
+    conn = pymysql.connect(host = 'localhost',user = 'root',password ='PASSWORD',charset = 'utf8',db = 'recipe_db')
+    sql = "select * from big_category"
+    curs = conn.cursor(pymysql.cursors.DictCursor)
+    curs.execute(sql)
+    rows = curs.fetchall()
+    for row in rows:
+        if(text.find(row[category_name])):
+            result = row['category_name']
+    return result
+    conn.close()
+< object
