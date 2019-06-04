@@ -6,12 +6,26 @@
 
 + #
 * <call>isid <star></call> eq 0 => 다시 말해주세요
-* <call>isid <star></call> eq 1 => <call>recipe_list_find <star></call> 다음과 같은 요리가 있습니다. 몇 번의 요리가 궁금하신가요? {topic=recipe_name}
+* <call>isid <star></call> eq 1 => <call>recipe_list_find <star></call> 다음과 같은 요리가 있습니다. 몇 번의 요리가 궁금하신가요? {topic=recipe_list2}
 
 // + #번 요리
 // - <call>recipe_name_find <star></call>
 
 + *  
+- 다시 말해주세요
+
++ /home
+- 무엇이 필요하신가요?
+^ 1: 요리 검색\n2: 재료 검색\n3: 기타
+^ {topic=random}
+
+< topic
+
+> topic recipe_list2
++ #
+- <call>recipe_list_find2 <star></call>
+
++ *
 - 다시 말해주세요
 
 + /home
@@ -38,13 +52,9 @@
 < topic
 
 > topic cook
-+ * (@cook_last_search)
--  <call>recipe_name_find <star></call>
-^ 몇번의 레시피를 알려드릴까요? 
-^ {topic=recipe_name}
-
-+ *
-- <call>recipe_name_find <call>match_cook_name <star></call> </call>
++ * [@cook_last_search]
+* <call>match_cook_name <star></call> eq undefined => <call>match_cook_name <star></call> 무엇이 필요하신가요?\n 1: 요리 검색\n2: 재료 검색\n3: 기타 {topic=random}
+* <call>match_cook_name <star></call> ne undefined => <call>match_cook_name <star></call> <call>recipe_name_find </call>
 ^ 몇번의 레시피를 알려드릴까요? 
 ^ {topic=recipe_name}
 
