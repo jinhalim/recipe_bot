@@ -52,11 +52,10 @@
 < topic
 
 > topic cook
-+ * [@cook_last_search]
-* <call>match_cook_name <star></call> eq undefined => <call>match_cook_name <star></call> 무엇이 필요하신가요?\n 1: 요리 검색\n2: 재료 검색\n3: 기타 {topic=random}
-* <call>match_cook_name <star></call> ne undefined => <call>match_cook_name <star></call> <call>recipe_name_find </call>
++ *[@cook_last_search]
+-  <call>food_find <star></call>
 ^ 몇번의 레시피를 알려드릴까요? 
-^ {topic=recipe_name}
+^ {topic=recipe_name} 
 
 + /home
 - 무엇이 필요하신가요?
