@@ -22,10 +22,8 @@
 
 > topic recipe_name
 
-
 + #
 - <call>recipe_find <star></call>
-
 
 
 + *
