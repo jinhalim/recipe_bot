@@ -1,5 +1,6 @@
 # recipe_bot
-
+<https://github.com/hyupokipoki>
+나머지 코드가 있는 곳
 
 <code> pip install pymysql</code></br>
 <code> pip install rivescript </code></br>
@@ -33,3 +34,7 @@ F.	(정확도 그래프) 해당하는 자료는 데이터의 크기 별 정확�
 G.	(Q. loss는 무엇이고 acc는 무엇인가?) loss 는 손실율, acc는 정확성입니다..
 5.	발전방향 소개
 발전 방향으로는 (팬널 3개 읽고) 이 있고, 레시피 등록 서비스를 통한 플랫폼 생성, 등록된 데이터베이스를 통한 식단관리 서비스, AI를 이용한 나의 요리 관심사 체크 및 비슷한 요리 추가 기능을 추가하여 앱의 완성도를 올릴 수 있을 것이라 생각합니다
+
+<image src = "https://github.com/jinhalim/recipe_bot/blob/master/capstone_image/%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81.png">
+  
+  
